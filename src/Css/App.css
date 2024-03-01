@@ -1,0 +1,324 @@
+/* Reset some basic elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styles for Full-screen Background Image */
+  .fullscreen-bg {
+    position: relative;
+    width: 100%;
+    height: 91vh;
+    overflow: hidden;
+    background-size: cover; /* Scale the background image to cover the entire container */
+    background-position: center; /* Center the background image */
+  }
+  
+  .fullscreen-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scale the image to be as large as possible while ensuring its aspect ratio is preserved */
+    object-position: center; /* Center the image within the container */
+  }
+  
+  @media (max-width: 768px) {
+    .fullscreen-bg {
+        background-size: 100% auto; /* Adjust background size for smaller screens */
+    }
+  }
+  /* Sticky Navbar Styles */
+  .navbar {
+    background-color: #040c16;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0.5rem 2rem;
+  }
+  
+  /* Logo styles */
+  .navbar-logo {
+    position: absolute;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    max-height: 6vw;
+    padding-left: 0;
+    transition: max-height 0.3s ease;
+  }
+  
+  .nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  
+  .navbar a:not(.navbar-logo) {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 19px;
+    position: relative; /* Added */
+    transition: transform 0.3s ease, color 0.3s ease; /* Added */
+  }
+  
+  .navbar a.btn {
+    background-color: #ffffff;
+    color: #23315f;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+
+  /* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .navbar a.btn {
+    padding: 4px 10px; /* Smaller padding */
+    font-size: 14px; /* Smaller font size */
+    /* Adjust other properties as needed */
+  }
+}
+
+  .navbar a:not(.navbar-logo)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: transparent;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Added */
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  
+  .navbar a:not(.navbar-logo):hover, .navbar a:not(.navbar-logo):focus {
+    color: #40e0d0; /* Turquoise Color */
+    transform: translateY(-3px); /* Added */
+  }
+  
+  .navbar a:hover::after, .navbar a:focus::after {
+    transform: scaleX(1);
+    background-color: #40e0d0; /* Added */
+  }
+  
+  /* Hover Effect for Links */
+  .navbar a:hover, .navbar a.btn:hover {
+    color: #40e0d0; /* Turquoise Color */
+  }
+  
+  /* Special hover effect for the button to keep its background color */
+  .navbar a.btn:hover {
+    background-color: #0d2036;
+    color: rgba(255, 255, 255); /* You might adjust this if you want a different hover effect for the button text */
+  }
+  
+/* Hide the hamburger menu on larger screens and adjust for smaller screens */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25px;
+  z-index: 1001;
+  border: none;
+  background: none;
+  padding: 0;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 5vw;
+    max-width: 30px;
+    height: 0.4vw;
+    max-height: 3px;
+    background-color: white;
+    margin: 0.5vw 0;
+    
+  }
+  
+  @media (max-width: 768px) {
+
+    .nav-center.active a {
+      margin: 5px 0 !important; /* Increased specificity and !important to override other styles */
+    }
+    .nav-center {
+      display: none; /* Hide by default */
+      flex-direction: column;
+      position: absolute;
+      top: 100%; /* Adjust if necessary */
+      left: 0;
+      width: 100%;
+      background-color: #040c16;
+      align-items: center;
+      padding: 1rem 0;
+      z-index: 1000; /* Ensure it's above other content */
+      /* Add transitions or animations if desired */
+    }
+  
+    .nav-center.active {
+      display: flex; /* Show when active */
+      /* Additional styles for transition or animation */
+    }
+  
+    .navbar-logo {
+      position: static;
+      margin-right: auto;
+    }
+  
+    .hamburger {
+      display: flex; /* Show on smaller screens */
+    }
+  
+  }
+  
+  /* Slogan styles */
+  .slogan {
+    position: absolute;
+    left: 20px;
+    top: 80%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+  }
+  
+  
+  .slogan h2 {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .slogan #first-part::after {
+    content: " "; /* Adds a space after the content */
+    margin-right: 10px; /* Adjust as needed for spacing after the comma */
+  }
+  
+  .slogan h3 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 40px;
+  }
+  
+  .slogan .btn {
+    background-color: #ffffff;
+    color: #23315f;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 20px;
+  }
+  
+  .slogan .btn:hover {
+    background-color: #0d2036;
+    color: #ffffff;
+  }
+  
+  @media (max-width: 768px) {
+    .slogan {
+        font-size: 18px;
+        left: 10px;
+        top: 80%;
+    }
+  
+    .slogan h2, .slogan h3 {
+        font-size: 18px;
+    }
+  
+    .slogan .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    background-color: #040c16; /* Dark blue color */
+  }
+  
+  .header {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .header h1 {
+    color: #ffffff;
+  }
+  
+  .inline-logo {
+    height: 70px;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .box {
+    width: calc(50% - 40px);
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.966);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  
+  .box h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .box p {
+    color: #ffffff;
+  }
+  
+  /* Keyframes for jumping animation */
+  @keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Apply jumping animation to the button */
+  .jumping {
+    animation: jump 1s ease;
+  }
+  
+  
